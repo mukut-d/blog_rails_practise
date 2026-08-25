@@ -1,0 +1,21 @@
+<%= link_to("Back", blogs_path)%> <br>
+
+<h1>Create Blogs</h1>
+<p>You can create new blogs here.</p>
+<% full_name = @name + " " + @last_name %>
+<%= full_name %> <br>
+
+<div >
+  <h2>Create Articles</h2>
+
+  <%= form_for(@article, url: blogs_path) do |f| %>
+    <% # url: tasks_path, method: 'post' %>
+
+	<%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Article") %>
+    </div>
+
+  <% end %>
+</div>
