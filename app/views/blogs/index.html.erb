@@ -38,33 +38,45 @@ tr:nth-child(even) {
     <td>Introduction to Ruby on Rails</td>
     <td>Introduction to the new language</td>
     <td>2026-08-18</td>
-	  <td class="actions">
-		<%= link_to("Show", blog_path(1), class: 'action show') %>
-		<%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-
-	  </td>
+      <td class="actions">
+		    <%= link_to("Show", blog_path(1), class: 'action show') %>
+		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
+		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+	    </td>
   </tr>
   <tr>
     <td>2</td>
     <td>Getting Started with JavaScript</td>
     <td>I'm familiar with JavaScript</td>
     <td>2026-08-19</td>
-	  <td class="actions">
-		<%= link_to("Show", blog_path(1), class: 'action show') %>
-		<%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		<%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-	  </td>
+      <td class="actions">
+		    <%= link_to("Show", blog_path(1), class: 'action show') %>
+		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
+		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+	    </td>
   </tr>
   <tr>
     <td>3</td>
     <td>Rails</td>
     <td>Rails is the new language , i'm learning</td>
     <td>2026-08-1</td>
-	  <td class="actions">
-		<%= link_to("Show", blog_path(1), class: 'action show') %>
-		<%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		<%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-	  </td>
+      <td class="actions">
+		    <%= link_to("Show", blog_path(1), class: 'action show') %>
+		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
+		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+	    </td>
   </tr>
+  <% @articles.each do | article | %>
+    <tr>
+      <td><%= article.postion %></td>
+      <td><%= article.name %></td>
+      <td><%= article.description %></td>
+      <td><%= article.created_at %></td>
+      <td class="actions">
+		    <%= link_to("Show", blog_path(article), class: 'action show') %>
+		    <%= link_to("Edit", edit_blog_path(article), class: 'action edit') %>
+		    <%= link_to "Delete Post", blog_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+	    </td>
+    </tr>
+  <% end %>
 </table>

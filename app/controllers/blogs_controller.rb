@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   #these are all actions, each action has a view file
   def index
-    @blogs = Article.order(:postion)
+    @articles = Article.order(:postion)
   end
 
   def new
@@ -36,7 +36,7 @@ class BlogsController < ApplicationController
   end  
 
   def show
-    
+     @article = Article.find(params[:id])
   end 
   def destroy
     redirect_to blogs_path
