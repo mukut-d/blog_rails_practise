@@ -41,7 +41,7 @@ tr:nth-child(even) {
       <td class="actions">
 		    <%= link_to("Show", blog_path(1), class: 'action show') %>
 		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 	    </td>
   </tr>
   <tr>
@@ -52,7 +52,7 @@ tr:nth-child(even) {
       <td class="actions">
 		    <%= link_to("Show", blog_path(1), class: 'action show') %>
 		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 	    </td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@ tr:nth-child(even) {
       <td class="actions">
 		    <%= link_to("Show", blog_path(1), class: 'action show') %>
 		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 	    </td>
   </tr>
   <% @articles.each do | article | %>
@@ -75,7 +75,7 @@ tr:nth-child(even) {
       <td class="actions">
 		    <%= link_to("Show", blog_path(article), class: 'action show') %>
 		    <%= link_to("Edit", edit_blog_path(article), class: 'action edit') %>
-		    <%= link_to "Delete Post", blog_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+		    <%= link_to("Delete Post", delete_blog_path(article.id)) %>
 	    </td>
     </tr>
   <% end %>
