@@ -5,4 +5,7 @@ class MainController < ApplicationController
   def about
     @created_by = "Mukut"
   end
+
+  def me
+  end
 end

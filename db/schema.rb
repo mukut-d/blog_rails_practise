@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_24_125557) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_27_080010) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
     t.string "name"
-    t.integer "postion"
+    t.integer "position"
     t.datetime "updated_at", null: false
   end
 end

@@ -1,20 +1,9 @@
-<%= link_to("Back", blogs_path)%> <br>
-
-
-<h1>Edit Blog</h1>
-<p>In this Page you can edit your blogs</p>
-
-<div>
-  <h2>Edit Task</h2>
-
+<div class="edit-page">
+  <%= link_to("Back", blogs_path) %> <br>
+  <h1>Edit Blog</h1>
+  <p>In this Page you can edit your blogs</p>
+  <h2>Edit Article</h2>
   <%= form_for(@article, url: blog_path(@article), method: 'patch') do |f| %>
-    <% # url: task_path(@task), method: 'patch' %>
-
-    <%= render(partial: 'form', locals: {f: f}) %>
-
-    <div class="form-buttons">
-      <%= f.submit("Edit Task") %>
-    </div>
-
+    <%= render(partial: 'form', locals: { f: f }) %>
   <% end %>
 </div>

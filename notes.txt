@@ -1,0 +1,17 @@
+task 4 :
+# make form / thnk page in center of the page - 100vh display: flex;
+# complete responsive design iap reg
+
+task 5:
+# learn  git status, git add, git commit, git push 
+
+task 6 :
+# indentation of scss - td,th should come in the same line 
+# code review - blog crud
+
+task 7 :
+# learn js from iap registration page from net/ai - only for this task
+
+
+Some questions while reviewing code
+# why we write action: about in link_to ? 

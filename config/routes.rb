@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "main/index"
   get "main/about"
+  get "main/me"
   # get "blogs/index"
   # get "blogs/new"
   # post "blogs/new"
@@ -9,14 +10,12 @@ Rails.application.routes.draw do
 
   root "main#index"
 
-  match 'about', to: "main#about", via: :get
+  match "about", to: "main#about", via: :get
+  match "me", to: "main#me", via: :get
 
-  resources :blogs do
-    member do
-      get :delete
-    end
-  end 
-  
+  resources :blogs
+  resources :products
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

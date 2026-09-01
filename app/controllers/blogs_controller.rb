@@ -1,37 +1,37 @@
 class BlogsController < ApplicationController
-  #these are all actions, each action has a view file
+  # these are all actions, each action has a view file.
   def index
-    @articles = Article.order(:postion)
+    @articles = Article.order(:position)
   end
 
+  # when you put @ in front of variable, it is called instance variable.
   def new
-    # when you put @ in front of variable, it is called instance variable 
     @name = "Mukut"
     @last_name = "Das"
 
     @count = Article.count
-    @article = Article.new(postion: @count + 1 + 3)
+    @article = Article.new(position: @count + 1)
   end
 
   def create
-
-    puts "========================"
-    puts params.inspect
-    puts "========================"
-
     @article = Article.new(article_params)
+
     if @article.save
       redirect_to blogs_path
     else
-      puts @arctile.errors.full_messages
+      puts @article.errors.full_messages.inspect
 
-      render('new')
-    end    
-  end  
+      @name = "Mukut"
+
+      @last_name = "Das"
+      @count = Article.count
+      @article = Article.new(position: @count + 1)
+      render("new")
+    end
+  end
 
   def edit
     @article = Article.find(params[:id])
-  
   end
 
   def update
@@ -39,34 +39,22 @@ class BlogsController < ApplicationController
 
     if @article.update(article_params)
       redirect_to blogs_path(@article)
-    else
-      render('edit')
-    end    
-
-  end  
+    else render("edit")     end
+  end
 
   def show
-     @article = Article.find(params[:id])
-  end 
-
-  def delete
     @article = Article.find(params[:id])
-  end  
+  end
 
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to blogs_path
-  end  
+  end
 
-  private 
-  
+  private
+
   def article_params
-    params.require(:article).permit(
-      :postion,
-      :name,
-      :description 
-    )
-  end  
-
+    params.require(:article).permit(:position, :name, :description)
+  end
 end

@@ -1,82 +1,31 @@
-<%= link_to("Back to homepage", {controller: 'main', action: 'index'})%> <br />
+<div class="index-page">
+  <%= link_to("Back to homepage", {controller: 'main', action: 'index'}) %> <br />
+  <h1>Blogs Main Page</h1>
+  <p>You can see all your blogs here</p>
 
-<h1>Blogs Main Page</h1>
-<p>You can see all your blogs here</p>
-
-<%= link_to("Create new Articles", new_blog_path, )%> <br /> <br/>
-
-
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Article</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Introduction to Ruby on Rails</td>
-    <td>Introduction to the new language</td>
-    <td>2026-08-18</td>
-      <td class="actions">
-		    <%= link_to("Show", blog_path(1), class: 'action show') %>
-		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-	    </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Getting Started with JavaScript</td>
-    <td>I'm familiar with JavaScript</td>
-    <td>2026-08-19</td>
-      <td class="actions">
-		    <%= link_to("Show", blog_path(1), class: 'action show') %>
-		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-	    </td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Rails</td>
-    <td>Rails is the new language , i'm learning</td>
-    <td>2026-08-1</td>
-      <td class="actions">
-		    <%= link_to("Show", blog_path(1), class: 'action show') %>
-		    <%= link_to("Edit", edit_blog_path(1), class: 'action edit') %>
-		    <%= link_to "Delete Post", delete_blog_path(1), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-	    </td>
-  </tr>
-  <% @articles.each do | article | %>
+  <%= link_to("Create new Articles", new_blog_path) %> <br /><br />
+  <table>
     <tr>
-      <td><%= article.postion %></td>
-      <td><%= article.name %></td>
-      <td><%= article.description %></td>
-      <td><%= article.created_at %></td>
-      <td class="actions">
-		    <%= link_to("Show", blog_path(article), class: 'action show') %>
-		    <%= link_to("Edit", edit_blog_path(article), class: 'action edit') %>
-		    <%= link_to("Delete Post", delete_blog_path(article.id)) %>
-	    </td>
+      <th>ID</th>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
-</table>
+    <% @articles.each do | article | %>
+      <tr>
+        <td><%= article.id %></td>
+        <td><%= article.position %></td>
+        <td><%= article.name %></td>
+        <td><%= article.description %></td>
+        <td><%= article.created_at %></td>
+        <td>
+		      <%= link_to("Show", blog_path(article)) %>
+		      <%= link_to("Edit", edit_blog_path(article)) %>
+		      <%= link_to("Delete", blog_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }) %>
+	      </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
