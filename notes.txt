@@ -13,5 +13,11 @@ task 7 :
 # learn js from iap registration page from net/ai - only for this task
 
 
+task 8 :
+activate otp in aatmeeya timeboard, in form desk
+
+activate otp from arrimation should be be done in form desk
+and style otp as same as get started
+
 Some questions while reviewing code
 # why we write action: about in link_to ? 

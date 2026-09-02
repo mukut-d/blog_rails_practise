@@ -14,6 +14,8 @@ class BlogsController < ApplicationController
   end
 
   def create
+    puts params.inspect
+    puts "========================="
     @article = Article.new(article_params)
 
     if @article.save

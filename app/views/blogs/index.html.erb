@@ -2,8 +2,8 @@
   <%= link_to("Back to homepage", {controller: 'main', action: 'index'}) %> <br />
   <h1>Blogs Main Page</h1>
   <p>You can see all your blogs here</p>
-
-  <%= link_to("Create new Articles", new_blog_path) %> <br /><br />
+  <%= link_to("Create new Articles", new_blog_path) %> <br />
+  <br />
   <table>
     <tr>
       <th>ID</th>
@@ -21,10 +21,10 @@
         <td><%= article.description %></td>
         <td><%= article.created_at %></td>
         <td>
-		      <%= link_to("Show", blog_path(article)) %>
-		      <%= link_to("Edit", edit_blog_path(article)) %>
-		      <%= link_to("Delete", blog_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }) %>
-	      </td>
+          <%= link_to("Show", blog_path(article)) %>
+          <%= link_to("Edit", edit_blog_path(article)) %>
+          <%= link_to("Delete", blog_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }) %>
+        </td>
       </tr>
     <% end %>
   </table>
