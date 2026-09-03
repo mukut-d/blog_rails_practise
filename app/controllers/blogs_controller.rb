@@ -41,7 +41,9 @@ class BlogsController < ApplicationController
 
     if @article.update(article_params)
       redirect_to blogs_path(@article)
-    else render("edit")     end
+    else
+      render("edit")
+    end
   end
 
   def show
